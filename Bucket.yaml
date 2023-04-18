@@ -6,3 +6,9 @@ Ressources:
         Properties:
             BucketName: STD21001
             AccessControl: PublicRead
+    BucketSSM:
+      Type: AWS::SSM::Parameter
+      Properties:
+        Name: Bucket AccessControl
+        Type: String
+
