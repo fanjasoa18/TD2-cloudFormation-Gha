@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      AWS_REGION: eu-west-3
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -20,7 +22,7 @@ jobs:
       - name: Deploy bucket
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
-          name: ${{ env.branch_env }}-bucket
+          name: bucket
           template: Bucket.yml
           capabilities: CAPABILITY_NAMED_IAM
           no-fail-on-empty-changeset: "1"
